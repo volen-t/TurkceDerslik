@@ -1,0 +1,135 @@
+﻿import type { ProgressState } from '../types/course';
+
+export const initialProgress: ProgressState = {
+  overallCompletion: 0,
+  units: [
+    {
+      unitId: 'unit-01',
+      unlocked: true,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-02',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-03',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-04',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-05',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-06',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-07',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-08',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-09',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-10',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-11',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-12',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-13',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-14',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-15',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-16',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-17',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    },
+    {
+      unitId: 'unit-18',
+      unlocked: false,
+      completion: 0,
+      practiceScore: null,
+      testScore: null,
+    }
+  ],
+};
+
+export default initialProgress;
