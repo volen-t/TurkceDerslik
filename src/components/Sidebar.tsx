@@ -19,6 +19,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ units, progress, activeUnitId,
           const unitProgress = progress[unit.id];
           const isLocked = unitProgress ? !unitProgress.unlocked : false;
           const completion = unitProgress?.completion ?? 0;
+          const accentColor = unit.themeColor ?? "#0ea5e9";
           return (
             <button
               key={unit.id}
@@ -30,6 +31,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ units, progress, activeUnitId,
                   ? "border-sky-500/80 bg-sky-500/10"
                   : "border-slate-800/80 bg-slate-900/60 hover:border-sky-500/60 hover:bg-slate-900"
               } ${isLocked ? "cursor-not-allowed opacity-60" : ""}`}
+              style={
+                activeUnitId === unit.id
+                  ? {
+                      boxShadow: `0 0 0 1px ${accentColor}33`,
+                    }
+                  : undefined
+              }
             >
               <div className="flex items-center justify-between">
                 <span className="text-sm font-semibold text-slate-100">{unit.title}</span>
@@ -38,8 +46,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ units, progress, activeUnitId,
               <p className="mt-1 text-xs text-slate-300">{unit.overview}</p>
               <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-slate-800">
                 <div
-                  className="h-full rounded-full bg-sky-500 transition-all duration-300"
-                  style={{ width: `${completion}%` }}
+                  className="h-full rounded-full transition-all duration-300"
+                  style={{ width: `${completion}%`, backgroundColor: accentColor }}
                 />
               </div>
               {isLocked && (
