@@ -1,4 +1,4 @@
-﻿export type QuestionType =
+export type QuestionType =
   | "multiple-choice"
   | "true-false"
   | "fill-in-the-blank"
@@ -39,9 +39,16 @@ export interface LessonActivity {
     consecutiveCorrect?: number;
   };
   metadata?: {
-    gameType?: "hangman" | "flashcards" | "speed-run" | "match-up";
+    gameType?:
+      | "hangman"
+      | "flashcards"
+      | "speed-run"
+      | "match-up"
+      | "word-search"
+      | "rapid-response";
     instructions?: string;
     hint?: string;
+    durationMinutes?: number;
   };
 }
 
@@ -66,6 +73,14 @@ export interface LessonResource {
   durationMinutes?: number;
 }
 
+export interface UnitTopic {
+  id: string;
+  title: string;
+  summary: string;
+  content: string;
+  examples: string[];
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -79,7 +94,7 @@ export interface Lesson {
   recommendedGame?: {
     title: string;
     description: string;
-    type: "hangman" | "word-search" | "flashcards" | "speed-run";
+    type: "hangman" | "word-search" | "flashcards" | "speed-run" | "rapid-response" | "match-up";
     vocabulary: string[];
   };
 }
@@ -97,8 +112,11 @@ export interface Unit {
   overview: string;
   themeColor?: string;
   badgeName?: string;
-  lessons: Lesson[];
-  finalExam: UnitFinalExam;
+  lessons?: Lesson[];
+  finalExam?: UnitFinalExam;
+  topics?: UnitTopic[];
+  practice?: PracticeQuestion[];
+  masteryTest?: PracticeQuestion[];
 }
 
 export interface CourseData {
@@ -121,10 +139,10 @@ export interface LessonProgress {
   lessonId: string;
   unlocked: boolean;
   completion: number;
-  activityProgress: ActivityProgress[];
-  quizScore: number | null;
-  quizAttempts: number;
-  quizBestScore: number;
+  activityProgress?: ActivityProgress[];
+  quizScore?: number | null;
+  quizAttempts?: number;
+  quizBestScore?: number;
   lastAccessedAt?: string;
 }
 
@@ -132,10 +150,12 @@ export interface UnitProgress {
   unitId: string;
   unlocked: boolean;
   completion: number;
-  lessons: LessonProgress[];
-  finalExamScore: number | null;
-  finalExamAttempts: number;
-  finalExamBestScore: number;
+  practiceScore?: number | null;
+  testScore?: number | null;
+  lessons?: LessonProgress[];
+  finalExamScore?: number | null;
+  finalExamAttempts?: number;
+  finalExamBestScore?: number;
   badgeEarnedAt?: string;
   lastAccessedAt?: string;
 }
@@ -143,6 +163,6 @@ export interface UnitProgress {
 export interface ProgressState {
   overallCompletion: number;
   units: UnitProgress[];
-  totalBadgesEarned: number;
-  totalStarsEarned: number;
+  totalBadgesEarned?: number;
+  totalStarsEarned?: number;
 }
