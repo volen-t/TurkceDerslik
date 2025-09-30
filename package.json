@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview",
-    "package": "npm run build && electron-builder"
+    "package": "npm run build && electron-builder",
+    "bundle:archive": "node scripts/create-archive.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.5.2",
